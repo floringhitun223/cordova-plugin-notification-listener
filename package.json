@@ -1,0 +1,8 @@
+{
+  "name": "cordova-plugin-notification-listener",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-notification-listener",
+    "platforms": ["android"]
+  }
+}

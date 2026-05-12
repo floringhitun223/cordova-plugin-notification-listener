@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-notification-listener"
+        version="1.0.0">
+    <name>NotificationListener</name>
+
+    <js-module src="www/NotificationListener.js" name="NotificationListener">
+        <clobbers target="cordova.plugins.NotificationListener" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NotificationListener">
+                <param name="android-package" value="com.example.notificationlistener.NotificationListenerPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.example.notificationlistener.AppNotificationService"
+                     android:label="Titan Notification Listener"
+                     android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+                     android:exported="true">
+                <intent-filter>
+                    <action android:name="android.service.notification.NotificationListenerService" />
+                </intent-filter>
+            </service>
+        </config-file>
+
+        <source-file src="src/android/NotificationListenerPlugin.java" target-dir="src/com/example/notificationlistener" />
+        <source-file src="src/android/AppNotificationService.java" target-dir="src/com/example/notificationlistener" />
+    </platform>
+</plugin>
