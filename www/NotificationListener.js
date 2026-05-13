@@ -1,4 +1,3 @@
-cordova.define("cordova-plugin-notification-listener.NotificationListener", function(require, exports, module) {
 var exec = require('cordova/exec');
 
 var NotificationListener = {
@@ -27,12 +26,10 @@ var NotificationListener = {
         exec(success, error, 'NotificationListener', 'openNotification', [key]);
     },
 
-    // ← ADDED: was missing, caused swipe-delete to silently fail
     cancelNotification: function(key, success, error) {
         exec(success, error, 'NotificationListener', 'cancelNotification', [key]);
     },
 
-    // ← ADDED: was missing, caused Clear All button to silently fail
     clearAllNotifications: function(success, error) {
         exec(success, error, 'NotificationListener', 'clearAllNotifications', []);
     }
@@ -40,4 +37,3 @@ var NotificationListener = {
 };
 
 module.exports = NotificationListener;
-});
